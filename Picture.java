@@ -366,9 +366,32 @@ public class Picture
     }
   }
 
-   ////////////////////// methods ///////////////////////////////////////
+  ////////////////////// methods ///////////////////////////////////////
+  //Written by: Ethan Song
 
-   
+  //This method will mirror an image from left to right
+  public void mirrorLeftToRight(){
+    //create a 2D array of pixels
+    Pixel[][]pixels = this.getPixels2D();
+    //create left pixel variable
+    Pixel leftPixel = null;
+    //create right pixel variable
+    Pixel rightPixel = null;
+
+
+    //loop through the rows 
+    for(int r = 0; r < pixels.length; r++){
+      //loop through the columns
+      for(int c = 0; c < pixels[0].length/2; c++){
+        //set left pixel to pixel 
+        leftPixel = pixels[r][c];
+        //set right pixel to mirrored area 
+        rightPixel = pixels[r][pixels[0].length - 1 - c];
+        //copy the left pixels color the the right pixel
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+  }
 
 
 } // this } is the end of class Picture, put all new methods before this
