@@ -4,7 +4,7 @@ class Main
   public static void main(String[] args) 
   {
     Picture pic = new Picture("caterpillar.jpg");
-     pic.mirrorLeftToRight();
+     pic.flipHorizontal();
     pic.write("output.jpg");
   }
 }

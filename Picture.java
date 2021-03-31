@@ -396,20 +396,23 @@ public class Picture
   //this method will flip an image horizontally
   public void flipHorizontal(){
     //create a pixel array
-    Pixel[][]data = this.getPixels2d();
+    Pixel[][]data = this.getPixels2D();
     //create 2 pixel variables
     Pixel leftPixel = null;
     Pixel rightPixel = null;
 
     //for loop that goes through rows 
-    for(int r = 0; r < data.length; r++){
+    for(int r = 0; r < data.length/2; r++){
       //for loop that goes through columns
-      for(int c = 0; c < data[0].length; c++){
+      for(int c = 0; c < data[0].length/2; c++){
         //assign pixels to left and right pixel
         leftPixel = data[r][c];
-        rightPixel = [r][data[0].length - 1 - c];
-        //swap colors
+        rightPixel = data[r][data[0].length - 1 - c];
+        //create temp variable
         Color tempColor = rightPixel.getColor();
+        //swap colors
+        rightPixel.setColor(leftPixel.getColor());
+        leftPixel.setColor(tempColor);
         
       }
     }
