@@ -419,5 +419,33 @@ public class Picture
 
   }
 
+  public void posterize(int numLevels){
+    
+    //create a pixel array 
+    Pixel[][] pixels = this.getPixels2D;
+    //create pixel variable
+    Pixel pixel = null
+    //create variables for rgb
+    int redValues = 0;
+    int blueValues = 0;
+    int greenValues = 0;
+    //create an increment variable 
+    int increment = (int)(256.0/numLevels);
+    //create value variables
+    int bottomValue, topValue, middleValue = 0;
+    //nested for loops to loop through pixels
+    for(int r = 0; r < pixels.length; row++){
+      for(int c = 0; c < pixel[0].length; c++){
+        //get current pixel
+        pixel = pixels[r][c];
+        //get color values
+
+
+      }
+    }
+
+  }
+
+
 
 } // this } is the end of class Picture, put all new methods before this
