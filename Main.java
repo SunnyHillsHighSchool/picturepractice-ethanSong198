@@ -3,8 +3,8 @@ class Main
   /* Main method for testing */
   public static void main(String[] args) 
   {
-    Picture pic = new Picture("caterpillar.jpg");
-     pic.flipHorizontal();
+    Picture pic = new Picture("butterfly2.jpg");
+     pic.posterize(4);
     pic.write("output.jpg");
   }
 }

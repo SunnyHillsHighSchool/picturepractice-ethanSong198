@@ -422,24 +422,48 @@ public class Picture
   public void posterize(int numLevels){
     
     //create a pixel array 
-    Pixel[][] pixels = this.getPixels2D;
+    Pixel[][] pixels = this.getPixels2D();
     //create pixel variable
-    Pixel pixel = null
+    Pixel pixel = null;
     //create variables for rgb
-    int redValues = 0;
-    int blueValues = 0;
-    int greenValues = 0;
+    int redValue = 0;
+    int blueValue = 0;
+    int greenValue = 0;
     //create an increment variable 
     int increment = (int)(256.0/numLevels);
     //create value variables
     int bottomValue, topValue, middleValue = 0;
     //nested for loops to loop through pixels
-    for(int r = 0; r < pixels.length; row++){
-      for(int c = 0; c < pixel[0].length; c++){
+    for(int r = 0; r < pixels.length; r++){
+      for(int c = 0; c < pixels[0].length; c++){
         //get current pixel
         pixel = pixels[r][c];
-        //get color values
 
+        //get color values
+        redValue = pixel.getRed();
+        greenValue = pixel.getGreen();
+        blueValue = pixel.getBlue();
+
+        //loop through numLevels
+        for(int level = 0; level < numLevels; level++){
+          bottomValue = level * increment;
+          topValue = (level  + 1)*increment;
+          middleValue = (int)((bottomValue + topValue-1)/2.0);
+
+          //if current color values are within the range set them equal to the middle value
+          if(bottomValue <= redValue && redValue < topValue){
+            pixel.setRed(middleValue);
+          }
+
+          if(bottomValue <= blueValue && blueValue < topValue){
+            pixel.setBlue(middleValue);
+          }
+
+          if(bottomValue <= greenValue && greenValue < topValue){
+            pixel.setGreen(middleValue);
+          }
+
+        }
 
       }
     }
